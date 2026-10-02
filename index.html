@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Restudio Learn — Documentation Platform</title>
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/02cSd2QF/restudio-profile.png">
+
+    <!-- Tiny5 for navbar -->
+    <link href="https://fonts.cdnfonts.com/css/tiny5" rel="stylesheet">
+    <!-- Dosis for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Playwrite GB S (for banner text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:wght@100..400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Linux Libertine', 'Georgia', 'Times New Roman', serif;
+            background-color: #f6f6f6;
+            line-height: 1.6;
+            color: #202122;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar img {
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .navbar h1 {
+            font-family: 'Tiny5', sans-serif;
+            font-size: 20px;
+            margin: 0;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .navbar .navbar-links {
+            margin-left: auto;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .navbar .navbar-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: sans-serif;
+            transition: color 0.2s;
+        }
+
+        .navbar .navbar-links a:hover {
+            color: #fff;
+        }
+
+        /* ===== BANNER with conic-gradient ===== */
+        .banner-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .container-bg {
+            width: 100%;
+            background-position: center center;
+            height: 100%;
+            min-height: 300px;
+            background:
+                conic-gradient(from 0deg at 68.4% 85.35%,
+                    #fff0 0 60deg,
+                    #38bba7 0 120deg,
+                    #159380 0 202.5deg,
+                    #fff0 0 360deg) 50%/20vmin 25vmin,
+                conic-gradient(from 0deg at 31.6% 85.35%,
+                    #fff0 0 157.5deg,
+                    #17a18c 0 240deg,
+                    #38bba7 0 300deg,
+                    #fff0 0 360deg) 50%/20vmin 25vmin,
+                conic-gradient(from 0deg at 81.35% 35.5%,
+                    #fff0 0 22.75deg,
+                    #128070 0 157.25deg,
+                    #fff0 0 360deg) 50%/20vmin 25vmin,
+                conic-gradient(from 0deg at 18.65% 35.5%,
+                    #fff0 0 202.75deg,
+                    #01685b 0 337.25deg,
+                    #fff0 0 360deg) 50%/20vmin 25vmin,
+                conic-gradient(from 0deg at 50% 50%,
+                    #fff0 0 60deg,
+                    #17a18c 0 157.5deg,
+                    #01685b 0 180.1deg,
+                    #128070 0 202.5deg,
+                    #159380 0 300deg,
+                    #fff0 0 360deg) 50%/20vmin 25vmin,
+                conic-gradient(from 0deg at 50% 21.15%,
+                    #fff0 0 22.5deg,
+                    #159380 0 120deg,
+                    #38bba7 0 240deg,
+                    #17a18c 0 337.5deg,
+                    #fff0 0 360deg) 50%/20vmin 25vmin,
+                linear-gradient(90deg, #128070 0 50%, #01685b 0 100%) 50%/20vmin 25vmin;
+            background-color: #128070;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            max-width: 60%;
+        }
+
+        .banner-overlay .line1 {
+            font-family: "Playwrite GB S", cursive;
+            font-size: 36px;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .banner-overlay .line2 {
+            font-family: "Playwrite GB S", cursive;
+            font-size: 22px;
+            color: #e8f5f2;
+            margin-top: 12px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .banner-overlay .line3 {
+            font-family: 'Dosis', sans-serif;
+            font-size: 15px;
+            color: #d5f0ea;
+            margin-top: 18px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== WIKIPEDIA-LIKE LAYOUT ===== */
+        .wiki-layout {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            flex: 1;
+            width: 100%;
+            gap: 24px;
+        }
+
+        /* Sidebar */
+        .wiki-sidebar {
+            width: 220px;
+            flex-shrink: 0;
+            font-family: sans-serif;
+            font-size: 13px;
+        }
+
+        .sidebar-card {
+            background: #ffffff;
+            border: 1px solid #e2e2e2;
+            border-radius: 4px;
+            padding: 16px 14px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 16px;
+        }
+
+        .sidebar-card h4 {
+            font-family: 'Dosis', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #1a1f2b;
+            margin: 0 0 10px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e8eaed;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-card h4 i {
+            color: #bc4a33;
+            font-size: 14px;
+        }
+
+        .sidebar-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-card ul li {
+            margin: 6px 0;
+        }
+
+        .sidebar-card ul li a {
+            color: #0645ad;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12.5px;
+            transition: color 0.2s, background 0.15s;
+            padding: 3px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sidebar-card ul li a:hover {
+            color: #0b5fa5;
+            background: #eef4fb;
+            text-decoration: none;
+        }
+
+        .sidebar-card ul li a i {
+            font-size: 11px;
+            color: #bc4a33;
+            width: 14px;
+            text-align: center;
+        }
+
+        .sidebar-card .sidebar-tagline {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* Main content */
+        .wiki-main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .wiki-card {
+            background: #ffffff;
+            border: 1px solid #e2e2e2;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            padding: 32px 36px;
+        }
+
+        .page-headline {
+            font-family: 'Dosis', 'Times New Roman', serif;
+            font-weight: 700;
+            font-size: 34px;
+            border-bottom: 1px solid #c8ccd1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1f2b;
+        }
+
+        .page-headline i {
+            color: #bc4a33;
+            font-size: 28px;
+            margin-right: 4px;
+        }
+
+        .page-headline .headline-sub {
+            font-size: 14px;
+            font-weight: 400;
+            color: #555;
+            margin-left: auto;
+            font-family: sans-serif;
+        }
+
+        h2 {
+            font-family: 'Dosis', 'Times New Roman', serif;
+            font-weight: 600;
+            font-size: 24px;
+            margin: 28px 0 12px 0;
+            border-bottom: 1px solid #eaecf0;
+            padding-bottom: 6px;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            scroll-margin-top: 80px;
+        }
+
+        h2 i {
+            color: #bc4a33;
+            font-size: 20px;
+        }
+
+        /* header link styling */
+        .header-link {
+            color: #bc4a33;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 6px;
+            opacity: 0.5;
+            transition: opacity 0.2s, color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .header-link:hover {
+            opacity: 1;
+            color: #0b5fa5;
+            text-decoration: none;
+        }
+
+        .wiki-card p {
+            margin: 14px 0;
+            line-height: 1.7;
+            color: #2d3748;
+            font-size: 15px;
+        }
+
+        .wiki-card strong {
+            color: #0c4e6e;
+        }
+
+        .wiki-card a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .wiki-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px;
+            margin: 18px 0 10px 0;
+        }
+
+        .product-card {
+            background: #f8fafc;
+            border: 1px solid #e2e2e2;
+            border-radius: 8px;
+            padding: 16px 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none !important;
+            color: #1a1f2b !important;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+            border-color: #bc4a33;
+            background: #f0f5fa;
+            text-decoration: none !important;
+        }
+
+        /* dimmed state when a filter is active and card doesn't match */
+        .product-card.dimmed {
+            opacity: 0.3;
+            filter: grayscale(0.6);
+            transform: scale(0.97);
+            pointer-events: none;
+        }
+
+        /* highlighted state for matching cards */
+        .product-card.highlighted {
+            border-color: #bc4a33;
+            background: #fff4f0;
+            box-shadow: 0 0 0 2px rgba(188, 74, 51, 0.25), 0 4px 14px rgba(188, 74, 51, 0.18);
+            animation: pulseHighlight 0.9s ease-out;
+        }
+
+        @keyframes pulseHighlight {
+            0% { box-shadow: 0 0 0 0 rgba(188, 74, 51, 0.5), 0 4px 14px rgba(188, 74, 51, 0.18); }
+            70% { box-shadow: 0 0 0 10px rgba(188, 74, 51, 0), 0 4px 14px rgba(188, 74, 51, 0.18); }
+            100% { box-shadow: 0 0 0 2px rgba(188, 74, 51, 0.25), 0 4px 14px rgba(188, 74, 51, 0.18); }
+        }
+
+        .product-card .product-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #e8f0fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .product-card .product-icon i {
+            font-size: 16px;
+            color: #bc4a33;
+        }
+
+        .product-card .product-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .product-card .product-info .product-name {
+            font-weight: 600;
+            font-size: 13.5px;
+            color: #1a1f2b;
+            font-family: 'Dosis', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .product-card .product-info .product-tag {
+            font-size: 10.5px;
+            color: #888;
+            font-family: sans-serif;
+        }
+
+        .product-card .product-arrow {
+            color: #bc4a33;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* ===== QUOTE BOX ===== */
+        .quote-box {
+            background: #f1f5f9;
+            border-left: 4px solid #bc4a33;
+            padding: 18px 22px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+            font-style: italic;
+            color: #374151;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .quote-box i {
+            color: #bc4a33;
+            margin-right: 6px;
+        }
+
+        /* ===== STATS ROW ===== */
+        .stats-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            background: #f8fafc;
+            border: 1px solid #e2e2e2;
+            border-radius: 8px;
+            padding: 14px 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .stat-item .stat-number {
+            font-family: 'Dosis', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: #bc4a33;
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            font-size: 11px;
+            color: #666;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Filter status banner */
+        .filter-status {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: #fff4f0;
+            border: 1px solid #f0c4b8;
+            color: #8a2e1c;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-family: sans-serif;
+            font-size: 13px;
+            margin: 0 0 6px 0;
+        }
+
+        .filter-status.active {
+            display: flex;
+        }
+
+        .filter-status .filter-clear {
+            margin-left: auto;
+            background: #bc4a33;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-family: sans-serif;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .filter-status .filter-clear:hover {
+            background: #9a3a26;
+        }
+
+        /* ===== GO TO DOCS LINK (plain) ===== */
+        .docs-link {
+            display: block;
+            margin: 26px 0 4px 0;
+            font-size: 15px;
+        }
+
+        .docs-link a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .docs-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-wiki {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e2e2e2;
+            padding: 16px 24px;
+            font-size: 13px;
+            color: #54595d;
+            font-family: sans-serif;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .footer-wiki a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .footer-wiki a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-wiki .footer-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        hr {
+            margin: 24px 0 16px;
+            border: 0;
+            border-top: 1px solid #e2e2e2;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .wiki-layout {
+                flex-direction: column;
+                padding: 12px 14px;
+            }
+
+            .wiki-sidebar {
+                width: 100%;
+            }
+
+            .sidebar-card ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .sidebar-card ul li {
+                margin: 0;
+            }
+
+            .sidebar-card ul li a {
+                font-size: 11px;
+                background: #f0f5fa;
+                padding: 4px 8px;
+                border-radius: 4px;
+            }
+
+            .wiki-card {
+                padding: 22px 18px;
+            }
+
+            .page-headline {
+                font-size: 26px;
+                flex-wrap: wrap;
+            }
+
+            .page-headline .headline-sub {
+                display: none;
+            }
+
+            .banner-overlay .line1 {
+                font-size: 22px;
+            }
+
+            .banner-overlay .line2 {
+                font-size: 15px;
+            }
+
+            .banner-overlay .line3 {
+                font-size: 11px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .product-card {
+                padding: 10px 8px;
+                gap: 6px;
+            }
+
+            .product-card .product-info .product-name {
+                font-size: 11px;
+            }
+
+            .product-card .product-icon {
+                width: 28px;
+                height: 28px;
+                border-radius: 6px;
+            }
+
+            .product-card .product-icon i {
+                font-size: 12px;
+            }
+
+            .stats-row {
+                gap: 8px;
+            }
+
+            .stat-item {
+                padding: 10px 12px;
+            }
+
+            .stat-item .stat-number {
+                font-size: 20px;
+            }
+
+            .docs-link {
+                font-size: 13.5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-overlay {
+                left: 20px;
+                max-width: 80%;
+            }
+
+            .navbar h1 {
+                font-size: 16px;
+            }
+            .navbar .navbar-links a {
+                font-size: 11px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <div class="navbar">
+        <img src="https://i.postimg.cc/yYCszSyc/swrh-restudio.png" alt="Restudio Logo">
+        <h1>Learn</h1>
+        <div class="navbar-links">
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
+
+    <!-- ===== BANNER with conic-gradient ===== -->
+    <div class="banner-wrapper">
+        <div class="container-bg"></div>
+        <div class="banner-overlay">
+            <div class="line1">Restudio Learn</div>
+            <div class="line2">Knowledge for everyone, free forever.</div>
+            <div class="line3">
+                <i class="fas fa-book-open" style="margin-right:6px;"></i>
+                Documenting every Restudio product — simply and clearly.
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== WIKIPEDIA-STYLE LAYOUT ===== -->
+    <div class="wiki-layout">
+
+        <!-- Sidebar -->
+        <div class="wiki-sidebar">
+            <div class="sidebar-card">
+                <h4><i class="fas fa-compass"></i> Navigation</h4>
+                <ul>
+                    <li><a href="#about"><i class="fas fa-circle-info"></i> Main Page</a></li>
+                    <li><a href="#products"><i class="fas fa-cubes"></i> All Products</a></li>
+                    <li><a href="#quickstart"><i class="fas fa-rocket"></i> Quick Start</a></li>
+                    <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                </ul>
+                <div class="sidebar-tagline">📚 14 products documented</div>
+            </div>
+
+            <div class="sidebar-card">
+                <h4><i class="fas fa-tag"></i> Categories</h4>
+                <ul id="category-list">
+                    <li><a data-category="Productivity"><i class="fas fa-folder"></i> Productivity</a></li>
+                    <li><a data-category="Education"><i class="fas fa-folder"></i> Education</a></li>
+                    <li><a data-category="Utilities"><i class="fas fa-folder"></i> Utilities</a></li>
+                    <li><a data-category="Media"><i class="fas fa-folder"></i> Media</a></li>
+                    <li><a data-category="Platform"><i class="fas fa-folder"></i> Platform</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="wiki-main">
+            <div class="wiki-card">
+
+                <!-- Headline -->
+                <div class="page-headline" id="about">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Restudio Learn</span>
+                    <span class="headline-sub">Documentation Platform</span>
+                </div>
+
+                <!-- About / Description -->
+                <div>
+                    <p>
+                        <strong>Restudio Learn</strong> is a platform dedicated to documenting
+                        <strong>Restudio products</strong> and explaining their use in a simple way,
+                        making technical knowledge accessible to everyone — especially those
+                        who cannot afford paid courses or tools.
+                    </p>
+
+                    <div class="quote-box">
+                        <i class="fas fa-quote-left"></i>
+                        We believe knowledge should be free. Restudio Learn exists so that
+                        anyone, anywhere, can learn how to use Restudio tools without barriers —
+                        no paywalls, no subscriptions, no limits.
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-number">14</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Free</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Open Access</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">🌍</span>
+                            <span class="stat-label">For Everyone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== GO TO DOCS LINK ===== -->
+                <p class="docs-link">
+                    <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Learn-Docs/"
+                       target="_blank" rel="noopener">Go To Restudio Learn Docs</a>
+                </p>
+
+                <!-- Products -->
+                <h2 id="products">
+                    <i class="fas fa-cubes"></i> All Restudio Products
+                    <a href="#products" class="header-link" title="Link to this section"><i class="fas fa-link"></i></a>
+                </h2>
+
+                <p>
+                    Browse the complete catalog of Restudio products. Each product has
+                    its own dedicated documentation page with step-by-step guides,
+                    examples, and practical tips. Click a category in the sidebar to filter.
+                </p>
+
+                <!-- Filter status -->
+                <div class="filter-status" id="filter-status">
+                    <i class="fas fa-filter"></i>
+                    <span>Showing category: <strong id="filter-name"></strong></span>
+                    <button class="filter-clear" id="filter-clear">Show all</button>
+                </div>
+
+                <div class="products-grid" id="products-grid">
+                    <a href="#" class="product-card" data-category="Productivity">
+                        <div class="product-icon"><i class="fas fa-address-book"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Contacts</div>
+                            <div class="product-tag">Productivity</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Utilities">
+                        <div class="product-icon"><i class="fas fa-language"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Translate</div>
+                            <div class="product-tag">Utilities</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Media">
+                        <div class="product-icon"><i class="fas fa-images"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Images</div>
+                            <div class="product-tag">Media</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Utilities">
+                        <div class="product-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Calculator</div>
+                            <div class="product-tag">Utilities</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Productivity">
+                        <div class="product-icon"><i class="fas fa-calendar-days"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Calendar</div>
+                            <div class="product-tag">Productivity</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Productivity">
+                        <div class="product-icon"><i class="fas fa-list-check"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio To Do</div>
+                            <div class="product-tag">Productivity</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Platform">
+                        <div class="product-icon"><i class="fas fa-th-large"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio App Center</div>
+                            <div class="product-tag">Platform</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="#" class="product-card" data-category="Utilities">
+                        <div class="product-icon"><i class="fas fa-globe"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Internet</div>
+                            <div class="product-tag">Utilities</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Presentation/" class="product-card" data-category="Media">
+                        <div class="product-icon"><i class="fas fa-presentation-screen"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Presentation</div>
+                            <div class="product-tag">Media</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Tables/" class="product-card" data-category="Productivity">
+                        <div class="product-icon"><i class="fas fa-table"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Tables</div>
+                            <div class="product-tag">Productivity</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Documents/" class="product-card" data-category="Productivity">
+                        <div class="product-icon"><i class="fas fa-file-lines"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Documents</div>
+                            <div class="product-tag">Productivity</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Forms/" class="product-card" data-category="Productivity">
+                        <div class="product-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Forms</div>
+                            <div class="product-tag">Productivity</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Math/" class="product-card" data-category="Education">
+                        <div class="product-icon"><i class="fas fa-square-root-variable"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Math</div>
+                            <div class="product-tag">Education</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    <!-- ===== تم استبدال Bookshelf بـ Dropwere ===== -->
+                    <a href="#" class="product-card" data-category="Utilities">
+                        <div class="product-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                        <div class="product-info">
+                            <div class="product-name">Restudio Dropwere</div>
+                            <div class="product-tag">Utilities</div>
+                        </div>
+                        <div class="product-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                </div>
+
+                <!-- Quick Start -->
+                <h2 id="quickstart">
+                    <i class="fas fa-rocket"></i> Quick Start Guide
+                    <a href="#quickstart" class="header-link" title="Link to this section"><i class="fas fa-link"></i></a>
+                </h2>
+                <p>
+                    New to Restudio? Here's how to get started with Restudio Learn:
+                </p>
+                <p>
+                    <strong>1.</strong> Browse the product catalog above and click on any product card to open its documentation.<br>
+                    <strong>2.</strong> Each product page includes a simple overview, step-by-step tutorials, and FAQs.<br>
+                    <strong>3.</strong> No registration is required — everything is free and publicly accessible.<br>
+                    <strong>4.</strong> Use the categories in the sidebar to filter products by type.
+                </p>
+
+                <!-- FAQ -->
+                <h2 id="faq">
+                    <i class="fas fa-question-circle"></i> Frequently Asked Questions
+                    <a href="#faq" class="header-link" title="Link to this section"><i class="fas fa-link"></i></a>
+                </h2>
+                <p>
+                    <strong>Is Restudio Learn really free?</strong><br>
+                    Yes! Restudio Learn is 100% free. We believe knowledge should be open to everyone.
+                </p>
+                <p>
+                    <strong>Are the products themselves free?</strong><br>
+                    Restudio products are designed to be affordable and accessible. Check each product's page for specific details.
+                </p>
+
+                <hr>
+
+                <!-- Acceptance note -->
+                <p style="text-align:center; color:#1e3a5f; font-size:14px; margin-top:20px;">
+                    <i class="fas fa-heart" style="color:#fc0f42; margin-right:6px;"></i>
+                    Restudio Learn — built for learning, open to everyone.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer-wiki">
+        <i class="far fa-copyright" style="margin-right:4px;"></i> Restudio Software Laboratories
+        <span style="float: right; font-size: 12px; color: #6b7280;">
+            <i class="fas fa-code"></i> open source · free
+        </span>
+        <div class="footer-links">
+            <a href="#about">About</a> ·
+            <a href="#products">Products</a> ·
+            <a href="#quickstart">Quick Start</a> ·
+            <a href="#faq">FAQ</a> ·
+            <a href="mailto:restudiosupport@gmail.com">Email Us</a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const categoryLinks = document.querySelectorAll('#category-list a[data-category]');
+            const productCards = document.querySelectorAll('#products-grid .product-card');
+            const filterStatus = document.getElementById('filter-status');
+            const filterName = document.getElementById('filter-name');
+            const filterClear = document.getElementById('filter-clear');
+            const productsSection = document.getElementById('products');
+
+            function applyFilter(category) {
+                let matchCount = 0;
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === category) {
+                        card.classList.remove('dimmed');
+                        card.classList.add('highlighted');
+                        matchCount++;
+                    } else {
+                        card.classList.add('dimmed');
+                        card.classList.remove('highlighted');
+                    }
+                });
+
+                filterName.textContent = category;
+                filterStatus.classList.add('active');
+
+                // Smooth scroll to products section
+                if (productsSection) {
+                    productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                if (matchCount === 0) {
+                    // Just in case no products match
+                    filterName.textContent = category + ' (no products)';
+                }
+            }
+
+            function clearFilter() {
+                productCards.forEach(card => {
+                    card.classList.remove('dimmed', 'highlighted');
+                });
+                filterStatus.classList.remove('active');
+                filterName.textContent = '';
+            }
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    if (category) {
+                        applyFilter(category);
+                    }
+                });
+            });
+
+            if (filterClear) {
+                filterClear.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    clearFilter();
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
